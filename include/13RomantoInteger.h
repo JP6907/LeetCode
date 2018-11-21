@@ -64,10 +64,10 @@ int romanToInt(string s) {
     int num = 0;
     while(i<len){
         if(i<len-1&&roma[s[i]]<roma[s[i+1]]){
-            num = num*10 + (roma[s[i+1]]-roma[s[i]]);
+            num += (roma[s[i+1]]-roma[s[i]]);
             i+=2;
         }else{
-            num = num*10 + roma[s[i]];
+            num += roma[s[i]];
             i++;
         }
     }
