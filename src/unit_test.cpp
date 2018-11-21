@@ -8,8 +8,9 @@ using namespace std;
 #define TEST1ED
 #define TEST7ED
 #define TEST9ED
-#define TEST12
+#define TEST12ED
 #define TEST13ED
+#define TEST14
 
 
 #ifdef TEST1
@@ -166,4 +167,40 @@ TEST_CASE("12IntegertoRoman"){
         REQUIRE(roma.compare("X")==0);
     }
 }
+#endif
+
+
+#ifdef TEST14
+
+#include "../include/14LongestCommonPrefix.h"
+TEST_CASE("14LongestCommonPrefix"){
+    SECTION("_141"){
+        vector<string> strs = {"flower","flow","flight"};
+        cout << "longestCommonPrefix:" << longestCommonPrefix(strs) << endl;
+    }
+    SECTION("_142"){
+        vector<string> strs = {"dog","racecar","car",""};
+        cout << "longestCommonPrefix:" << longestCommonPrefix(strs) << endl;
+    }
+
+    //method2
+
+    SECTION("_143"){
+        vector<string> strs = {"flower","flow","flight"};
+        cout << "longestCommonPrefix:" << longestCommonPrefix2(strs) << endl;
+    }
+    SECTION("_144"){
+        vector<string> strs = {"dog","racecar","car",""};
+        cout << "longestCommonPrefix:" << longestCommonPrefix2(strs) << endl;
+    }
+    SECTION("_145"){
+        vector<string> strs = {"a"};
+        cout << "longestCommonPrefix:" << longestCommonPrefix2(strs) << endl;
+    }
+    SECTION("_146"){
+        vector<string> strs = {"aaa","aa","aaa"};
+        cout << "longestCommonPrefix:" << longestCommonPrefix2(strs) << endl;
+    }
+}
+
 #endif
