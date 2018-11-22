@@ -10,7 +10,13 @@ using namespace std;
 #define TEST9ED
 #define TEST12ED
 #define TEST13ED
-#define TEST14
+#define TEST14ED
+#define TEST20ED
+#define TEST21ED
+#define TEST22ED
+#define TEST26ED
+#define TEST27
+
 
 
 #ifdef TEST1
@@ -200,6 +206,151 @@ TEST_CASE("14LongestCommonPrefix"){
     SECTION("_146"){
         vector<string> strs = {"aaa","aa","aaa"};
         cout << "longestCommonPrefix:" << longestCommonPrefix2(strs) << endl;
+    }
+}
+
+#endif
+
+
+
+#ifdef TEST20
+
+#include "../include/20ValidParentheses.h"
+TEST_CASE("20ValidParentheses"){
+    SECTION("201"){
+        REQUIRE(isValid("()")==true);
+    }
+    SECTION("202"){
+        REQUIRE(isValid("()[]{}")==true);
+    }
+    SECTION("203"){
+        REQUIRE(isValid("(]")==false);
+    }
+    SECTION("204"){
+        REQUIRE(isValid("([)]")==false);
+    }
+    SECTION("205"){
+        REQUIRE(isValid("{[]}")==true);
+    }
+    SECTION("206"){
+        REQUIRE(isValid("")==true);
+    }
+    SECTION("207"){
+        REQUIRE(isValid("]")==false);
+    }
+}
+#endif
+
+
+#ifdef TEST22
+
+#include "../include/22GenerateParentheses.h"
+TEST_CASE("22GenerateParentheses"){
+    SECTION("221"){
+        vector<string> res = generateParenthesis(3);
+        for(string s:res)
+            cout << s << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST21
+
+#include "../include/21MergeTwoSorted Lists.h"
+TEST_CASE("21MergeTwoSorted"){
+    SECTION("211"){
+        ListNode* l1 = new ListNode(0);
+        ListNode* l2 = new ListNode(0);
+        ListNode* p1 = l1;
+        ListNode* p2 = l2;
+        int data1[] = {1,2,4};
+        int data2[] = {1,3,4};
+        for(int d:data1){
+            ListNode* node = new ListNode(d);
+            p1->next = node;
+            p1 = p1->next;
+        }
+        for(int d:data2){
+            ListNode* node = new ListNode(d);
+            p2->next = node;
+            p2 = p2->next;
+        }
+
+        ListNode* merge = mergeTwoLists(l1,l2);
+        ListNode* p = merge;
+        while(p!=NULL){
+            cout << p->val << "  ";
+            p = p->next;
+        }
+    }
+}
+
+#endif
+
+
+
+#ifdef TEST26
+
+#include "26RemoveDuplicatesromSortedArray.h"
+TEST_CASE("26RemoveDuplicatesromSortedArray"){
+    SECTION("261"){
+        vector<int> nums = {0,0,1,1,1,2,2,3,3,4};
+        int len = removeDuplicates(nums);
+        REQUIRE(len == 5);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
+    }
+    SECTION("262"){
+        vector<int> nums = {1,1,2};
+        int len = removeDuplicates(nums);
+        REQUIRE(len == 2);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
+    }
+    SECTION("263"){
+        vector<int> nums = {};
+        int len = removeDuplicates(nums);
+        REQUIRE(len == 0);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
+    }
+    SECTION("264"){
+        vector<int> nums = {1};
+        int len = removeDuplicates(nums);
+        REQUIRE(len == 1);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST27
+
+#include "27RemoveElement.h"
+TEST_CASE("27RemoveElement"){
+    SECTION("271"){
+        vector<int> nums = {3,2,2,3};
+        int len = removeElement(nums,3);
+        REQUIRE(len == 2);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
+    }
+    SECTION("272"){
+        vector<int> nums = {0,1,2,2,3,0,4,2};
+        int len = removeElement(nums,2);
+        REQUIRE(len == 5);
+        for(int i=0;i<len;i++)
+            cout << nums[i] << " ";
+        cout << endl;
     }
 }
 
