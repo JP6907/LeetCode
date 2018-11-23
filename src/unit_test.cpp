@@ -1,5 +1,4 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-#include "catch.hpp"
+#include "catch.h"
 
 #include <iostream>
 
@@ -15,7 +14,13 @@ using namespace std;
 #define TEST21ED
 #define TEST22ED
 #define TEST26ED
-#define TEST27
+#define TEST27ED
+#define TEST28ED
+
+#define TEST35
+
+#define TEST203ED
+#define TEST459ED
 
 
 
@@ -351,6 +356,135 @@ TEST_CASE("27RemoveElement"){
         for(int i=0;i<len;i++)
             cout << nums[i] << " ";
         cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST203
+
+#include "203RemoveLinkedListElements.h"
+TEST_CASE("203RemoveLinkedListElements"){
+    SECTION("2031"){
+        cout << "2031" << endl;
+        ListNode* l = new ListNode(0);
+        ListNode* p = l;
+        int vals[] = {1,2,6,3,4,5,6};
+        for(int v:vals){
+            ListNode* node = new ListNode(v);
+            p->next = node;
+            p = p->next;
+        }
+        l = removeElements(l,6);
+        while(l){
+            cout << l->val << " ";
+            l=l->next;
+        }
+        cout << endl;
+    }
+    SECTION("2032"){
+        cout << "2032" << endl;
+        ListNode* l = new ListNode(1);
+        ListNode* p = l;
+        int vals[] = {1};
+        for(int v:vals){
+            ListNode* node = new ListNode(v);
+            p->next = node;
+            p = p->next;
+        }
+        l = removeElements(l,1);
+        while(l){
+            cout << l->val << " ";
+            l=l->next;
+        }
+        cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST28
+
+#include "28ImplementstrStr.h"
+TEST_CASE("28ImplementstrStr"){
+    SECTION("281"){
+        string haystack = "hello";
+        string needle = "ll";
+        REQUIRE(strStr(haystack,needle)==2);
+    }
+    SECTION("282"){
+        string haystack = "aaaaa";
+        string needle = "bba";
+        REQUIRE(strStr(haystack,needle)==-1);
+    }
+    SECTION("283"){
+        string haystack = "";
+        string needle = "bba";
+        REQUIRE(strStr(haystack,needle)==-1);
+    }
+    SECTION("284"){
+        string haystack = "a";
+        string needle = "a";
+        REQUIRE(strStr(haystack,needle)==0);
+    }
+    SECTION("285"){
+        string haystack = "mississippi";
+        string needle = "issi";
+        REQUIRE(strStr(haystack,needle)==1);
+    }
+}
+
+#endif
+
+
+#ifdef TEST459
+
+#include "459RepeatedSubstringPattern.h"
+TEST_CASE("459RepeatedSubstringPattern"){
+    SECTION("4591"){
+        REQUIRE(repeatedSubstringPattern("abcabcabcabc")== true);
+    }
+    SECTION("4592"){
+        REQUIRE(repeatedSubstringPattern("aba")== false);
+    }
+    SECTION("4593"){
+        REQUIRE(repeatedSubstringPattern("abab")== true);
+    }
+    SECTION("4594"){
+        REQUIRE(repeatedSubstringPattern("a")== false);
+    }
+    SECTION("4595"){
+        REQUIRE(repeatedSubstringPattern("aabaaba")== false);
+    }
+}
+
+#endif
+
+#ifdef TEST35
+
+#include "35SearchInsertPosition.h"
+TEST_CASE("35SearchInsertPosition"){
+    SECTION("351"){
+        vector<int> nums = {1,3,5,6};
+        REQUIRE(searchInsert(nums,5)==2);
+    }
+    SECTION("352"){
+        vector<int> nums = {1,3,5,6};
+        REQUIRE(searchInsert(nums,2)==1);
+    }
+    SECTION("353"){
+        vector<int> nums = {1,3,5,6};
+        REQUIRE(searchInsert(nums,7)==4);
+    }
+    SECTION("354"){
+        vector<int> nums = {1,3,5,6};
+        REQUIRE(searchInsert(nums,0)==0);
+    }
+    SECTION("355"){
+        vector<int> nums = {1,3};
+        REQUIRE(searchInsert(nums,1)==0);
     }
 }
 
