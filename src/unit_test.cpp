@@ -17,7 +17,16 @@ using namespace std;
 #define TEST27ED
 #define TEST28ED
 
-#define TEST35
+#define TEST35ED
+
+#define TEST53ED
+
+#define TEST58ED
+
+#define TEST66ED
+#define TEST67ED
+
+#define TEST69
 
 #define TEST203ED
 #define TEST459ED
@@ -485,6 +494,164 @@ TEST_CASE("35SearchInsertPosition"){
     SECTION("355"){
         vector<int> nums = {1,3};
         REQUIRE(searchInsert(nums,1)==0);
+    }
+}
+
+#endif
+
+
+#ifdef TEST53
+
+#include "53MaximumSubarray.h"
+TEST_CASE("53MaximumSubarray"){
+    SECTION("531"){
+        vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+        REQUIRE(maxSubArray(nums)==6);
+    }
+    SECTION("532"){
+        vector<int> nums = {};
+        REQUIRE(maxSubArray(nums)==0);
+    }
+    SECTION("533"){
+        vector<int> nums = {-1};
+        REQUIRE(maxSubArray(nums)==-1);
+    }
+    SECTION("534"){
+        vector<int> nums = {1,2,3,-2,7};
+        REQUIRE(maxSubArray(nums)==11);
+    }
+    SECTION("535"){
+        vector<int> nums = {1,2,3,-2};
+        REQUIRE(maxSubArray(nums)==6);
+    }
+    //method 2
+    SECTION("536"){
+        vector<int> nums = {-2,1,-3,4,-1,2,1,-5,4};
+        REQUIRE(maxSubArray2(nums)==6);
+    }
+    SECTION("537"){
+        vector<int> nums = {};
+        REQUIRE(maxSubArray2(nums)==0);
+    }
+    SECTION("538"){
+        vector<int> nums = {-1};
+        REQUIRE(maxSubArray2(nums)==-1);
+    }
+    SECTION("539"){
+        vector<int> nums = {1,2,3,-2,7};
+        REQUIRE(maxSubArray2(nums)==11);
+    }
+    SECTION("5310"){
+        vector<int> nums = {1,2,3,-2};
+        REQUIRE(maxSubArray2(nums)==6);
+    }
+    SECTION("5311"){
+        vector<int> nums = {-2,-1};
+        REQUIRE(maxSubArray2(nums)==-1);
+    }
+    SECTION("5312"){
+        vector<int> nums = {-1,-2};
+        REQUIRE(maxSubArray2(nums)==-1);
+    }
+}
+
+#endif
+
+
+
+#ifdef TEST58
+
+#include "58LengthofLastWord.h"
+
+TEST_CASE("58LengthofLastWord"){
+    SECTION("581"){
+        string s = "sa asd hello";
+        REQUIRE(lengthOfLastWord(s)==5);
+    }
+}
+
+#endif
+
+#ifdef TEST66
+
+#include "66PlusOne.h"
+TEST_CASE("66PlusOne"){
+    SECTION("661"){
+        vector<int> digits = {1,2,3};
+        vector<int> v = plusOne(digits);
+        for(int n : v)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("662"){
+        vector<int> digits = {4,3,2,1};
+        vector<int> v = plusOne(digits);
+        for(int n : v)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("663"){
+        vector<int> digits = {1};
+        vector<int> v = plusOne(digits);
+        for(int n : v)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("664"){
+        vector<int> digits = {1,2,9};
+        vector<int> v = plusOne(digits);
+        for(int n : v)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("665"){
+        vector<int> digits = {9};
+        vector<int> v = plusOne(digits);
+        for(int n : v)
+            cout << n << " ";
+        cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST67
+
+#include "67AddBinary.h"
+TEST_CASE("67AddBinary"){
+    SECTION("671"){
+        string a = "11";
+        string b = "1";
+        string result = addBinary(a,b);
+        REQUIRE(addBinary(a,b).compare("100")==0);
+    }
+    SECTION("672"){
+        string a = "1010";
+        string b = "1011";
+        string result = addBinary(a,b);
+        REQUIRE(addBinary(a,b).compare("10101")==0);
+    }
+}
+
+#endif
+
+
+#ifdef TEST69
+
+#include "69Sqrt(x).h"
+TEST_CASE("69Sqrt(x)"){
+    SECTION("691"){
+        REQUIRE(mySqrt(4)==2);
+    }
+    SECTION("692"){
+        REQUIRE(mySqrt(8)==2);
+    }
+    SECTION("693"){
+        REQUIRE(mySqrt(1)==1);
+    }
+    SECTION("693"){
+        cout << mySqrt(2147395599);
     }
 }
 
