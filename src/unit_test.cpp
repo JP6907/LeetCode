@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#define TEST_TREENODEED
+
 #define TEST1ED
 #define TEST7ED
 #define TEST9ED
@@ -26,10 +28,24 @@ using namespace std;
 #define TEST66ED
 #define TEST67ED
 
-#define TEST69
+#define TEST69ED
+#define TEST70ED
+
+#define TEST83ED
+
+#define TEST88ED
+
+#define TEST100ED
+#define TEST101ED
+
+#define TEST104ED
+
+#define TEST110ED
 
 #define TEST203ED
 #define TEST459ED
+
+#define TEST637
 
 
 
@@ -652,6 +668,299 @@ TEST_CASE("69Sqrt(x)"){
     }
     SECTION("693"){
         cout << mySqrt(2147395599);
+    }
+}
+
+#endif
+
+
+#ifdef TEST70
+
+#include "70ClimbingStairs.h"
+TEST_CASE("70ClimbingStairs"){
+    SECTION("701"){
+        REQUIRE(climbStairs(2)==2);
+    }
+    SECTION("702"){
+        REQUIRE(climbStairs(3)==3);
+    }
+    SECTION("703"){
+        cout << climbStairs(44);
+    }
+
+    //method 2
+    SECTION("704"){
+        REQUIRE(climbStairs2(2)==2);
+    }
+    SECTION("705"){
+        REQUIRE(climbStairs2(3)==3);
+    }
+    SECTION("706"){
+        REQUIRE(climbStairs2(44)==1134903170);
+    }
+}
+
+#endif
+
+
+#ifdef TEST83
+
+#include "83RemoveDuplicatesfromSorted List.h"
+TEST_CASE("83RemoveDuplicatesfromSorted"){
+    SECTION("831"){
+        int nums[] = {1,1,2,3,3};
+        ListNode* head;
+        ListNode* p;
+        for(int n:nums){
+            if(!head){
+                head = new ListNode(n);
+                p = head;
+            }else{
+                ListNode* node = new ListNode(n);
+                p->next = node;
+                p = p->next;
+            }
+        }
+
+        head = deleteDuplicates(head);
+        while(head){
+            cout << head->val << " ";
+            head = head->next;
+        }
+        cout << endl;
+    }
+    SECTION("832"){
+        int nums[] = {1,1};
+        ListNode* head;
+        ListNode* p;
+        for(int n:nums){
+            if(!head){
+                head = new ListNode(n);
+                p = head;
+            }else{
+                ListNode* node = new ListNode(n);
+                p->next = node;
+                p = p->next;
+            }
+        }
+
+        head = deleteDuplicates(head);
+        while(head){
+            cout << head->val << " ";
+            head = head->next;
+        }
+        cout << endl;
+    }
+    SECTION("833"){
+        int nums[] = {};
+        ListNode* head;
+        ListNode* p;
+        for(int n:nums){
+            if(!head){
+                head = new ListNode(n);
+                p = head;
+            }else{
+                ListNode* node = new ListNode(n);
+                p->next = node;
+                p = p->next;
+            }
+        }
+
+        head = deleteDuplicates(head);
+        while(head){
+            cout << head->val << " ";
+            head = head->next;
+        }
+        cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST88
+
+#include "88MergeSortedArray.h"
+TEST_CASE("88MergeSortedArray"){
+    SECTION("881"){
+        vector<int> nums1 = {1,2,3,0,0,0};
+        vector<int> nums2 = {2,5,6};
+        merge(nums1,3,nums2,3);
+        for(int n:nums1)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("882"){
+        vector<int> nums1 = {0,0,0};
+        vector<int> nums2 = {2,5,6};
+        merge(nums1,0,nums2,3);
+        for(int n:nums1)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("883"){
+        vector<int> nums1 = {1,2,3,0,0,0};
+        vector<int> nums2 = {};
+        merge(nums1,3,nums2,0);
+        for(int n:nums1)
+            cout << n << " ";
+        cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST_TREENODE
+
+#include "TreeNode.h"
+TEST_CASE("TreeNode"){
+    SECTION("1"){
+        vector<int> nums = {1,INT32_MIN,3};
+        TreeNode* tree = levelCreateTree(nums,0);
+        printTree(tree);
+    }
+    SECTION("2"){
+        vector<int> nums = {1,INT32_MIN,3,INT32_MIN,INT32_MIN,4,5};
+        TreeNode* tree = levelCreateTree(nums,0);
+        printTree(tree);
+    }
+}
+
+#endif
+
+
+#ifdef TEST100
+
+#include "100SameTree.h"
+#include "TreeNode.h"
+TEST_CASE("100SameTree"){
+    SECTION("1001") {
+        vector<int> nums1 = {1, 2, 3};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, INT32_MIN, 3};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == false);
+    }
+    SECTION("1002") {
+        vector<int> nums1 = {1, 2, 3};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, 2, 3};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == true);
+    }
+    SECTION("1003") {
+        vector<int> nums1 = {1, 2, 1};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, 1, 2};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == false);
+    }
+
+    //method2
+
+
+    SECTION("1004") {
+        vector<int> nums1 = {1, 2, 3};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, INT32_MIN, 3};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == false);
+    }
+    SECTION("1005") {
+        vector<int> nums1 = {1, 2, 3};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, 2, 3};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == true);
+    }
+    SECTION("1006") {
+        vector<int> nums1 = {1, 2, 1};
+        TreeNode *tree1 = levelCreateTree(nums1, 0);
+
+        vector<int> nums2 = {1, 1, 2};
+        TreeNode *tree2 = levelCreateTree(nums2, 0);
+
+        REQUIRE(isSameTree(tree1, tree2) == false);
+    }
+}
+
+#endif
+
+
+#ifdef TEST101
+
+#include "101SymmetricTree.h"
+TEST_CASE("101SymmetricTree"){
+    SECTION("1011"){
+        vector<int> nums = {1,2,2,3,4,4,3};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(isSymmetric2(tree)==true);
+    }
+    SECTION("1012"){
+        vector<int> nums = {1,2,2,INT32_MIN,3,INT32_MIN,3};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(isSymmetric2(tree)==false);
+    }
+}
+
+#endif
+
+
+#ifdef TEST104
+
+#include "104MaximumDepthofBinaryTree.h"
+TEST_CASE("104MaximumDepthofBinaryTree"){
+    SECTION("1041"){
+        vector<int> nums = {3,9,20,INT32_MIN,INT32_MIN,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(maxDepth(tree)==3);
+    }
+}
+
+#endif
+
+
+#ifdef TEST110
+
+#include "110BalancedBinaryTree.h";
+TEST_CASE("110BalancedBinaryTree"){
+    SECTION("1101"){
+        vector<int> nums = {3,9,20,INT32_MIN,INT32_MIN,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(isBalanced(tree)==true);
+    }
+    SECTION("1102"){
+        vector<int> nums = {1,2,2,3,3,INT32_MIN,INT32_MIN,4,4};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(isBalanced(tree)==false);
+    }
+}
+
+#endif
+
+
+#ifdef TEST637
+
+#include "637AverageofLevelsinBinaryTree.h"
+TEST_CASE("637AverageofLevelsinBinaryTree"){
+    SECTION("637"){
+        vector<int> nums = {3, 9,20 ,INT32_MIN,INT32_MIN,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        vector<double> average = averageOfLevels(tree);
+        for(double a : average)
+            cout << a << " ";
+        cout << endl;
     }
 }
 
