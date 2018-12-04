@@ -39,13 +39,28 @@ using namespace std;
 #define TEST101ED
 
 #define TEST104ED
+#define TEST107ED
+
 
 #define TEST110ED
+#define TEST111ED
+#define TEST112ED
+#define TEST113ED
+#define TEST118ED
+#define TEST119ED
+
+#define TEST121ED
+#define TEST122ED
+
+#define TEST127
 
 #define TEST203ED
+
+#define TEST437ED
+
 #define TEST459ED
 
-#define TEST637
+#define TEST637ED
 
 
 
@@ -961,6 +976,205 @@ TEST_CASE("637AverageofLevelsinBinaryTree"){
         for(double a : average)
             cout << a << " ";
         cout << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST107
+
+#include "107BinaryTreeLevelOrderTraversalII.h"
+TEST_CASE("107BinaryTreeLevelOrderTraversalII"){
+    SECTION("1071"){
+        vector<int> nums = {3,9,20,INT32_MIN,INT32_MIN,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        vector<vector<int>> nodeVector = levelOrderBottom(tree);
+        for(vector<int> v:nodeVector){
+            for(int n:v)
+                cout << n << "  ";
+            cout << endl;
+        }
+    }
+}
+
+#endif
+
+
+#ifdef TEST111
+
+#include "111MinimumDepthofBinaryTree.h"
+TEST_CASE("111MinimumDepthofBinaryTree"){
+    SECTION("1111"){
+        vector<int> nums = {3,9,20,1,2,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        int mindepth = minDepth(tree);
+        cout << mindepth << endl;
+    }
+    SECTION("1111"){
+        vector<int> nums = {3,9,20,INT32_MIN,INT32_MIN,15,7};
+        TreeNode* tree = levelCreateTree(nums,0);
+        int mindepth = minDepth(tree);
+        cout << mindepth << endl;
+    }
+}
+
+#endif
+
+
+#ifdef TEST112
+
+#include "112PathSum.h"
+TEST_CASE("111MinimumDepthofBinaryTree"){
+    SECTION("1111"){
+        vector<int> nums = {5,4,8,11,INT32_MIN,13,4,7,2,INT32_MIN,INT32_MIN,INT32_MIN,1};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(hasPathSum(tree,22)==true);
+    }
+    SECTION("1112"){
+        vector<int> nums = {6,4,8,11,INT32_MIN,13,4,7,2,INT32_MIN,INT32_MIN,INT32_MIN,1};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(hasPathSum(tree,22)==false);
+    }
+    SECTION("1113"){
+        vector<int> nums = {};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(hasPathSum(tree,0)==false);
+    }
+    SECTION("1114"){
+        vector<int> nums = {1,2};
+        TreeNode* tree = levelCreateTree(nums,0);
+        REQUIRE(hasPathSum(tree,1)==false);
+    }
+}
+
+#endif
+
+#ifdef TEST113
+
+#include "113PathSumII.h"
+TEST_CASE("113PathSumII"){
+    SECTION("1131"){
+        /**
+         *    5
+             / \
+            4   8
+           /   / \
+          11  13  4
+         /  \    / \
+        7    2  5   1
+         */
+        vector<int> nums = {5,4,8,11,INT32_MIN,13,4,7,2,INT32_MIN,INT32_MIN,INT32_MIN,INT32_MIN,5,1};
+        TreeNode* tree = levelCreateTree(nums,0);
+        vector<vector<int>> paths = pathSum(tree,22);
+        for(vector<int> path:paths){
+            for(int n:path)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << endl;
+    }
+}
+
+#endif
+
+#ifdef TEST118
+
+#include "118Pascal'sTriangle.h"
+TEST_CASE("118Pascal'sTriangle"){
+    SECTION("1181"){
+        vector<vector<int>> pascal = generate(5);
+        for(vector<int> vec:pascal){
+            for(int n:vec)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << endl;
+    }
+}
+
+#endif
+
+#ifdef TEST119
+
+#include "119Pascal'sTriangleII.h"
+TEST_CASE("119Pascal'sTriangleII"){
+    SECTION("1191"){
+        vector<int> vec = getRow(3);
+        for(int n:vec)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("1192"){
+        vector<int> vec = getRow(4);
+        for(int n:vec)
+            cout << n << " ";
+        cout << endl;
+    }
+}
+
+#endif
+
+#ifdef TEST121
+
+#include "121BestTimetoBuyandSellStock.h"
+TEST_CASE("121BestTimetoBuyandSellStock"){
+    SECTION("1211"){
+        vector<int> prices = {7,1,5,3,6,4};
+        REQUIRE(maxProfit(prices)==5);
+    }
+    SECTION("1212"){
+        vector<int> prices = {7,6,4,3,1};
+        REQUIRE(maxProfit(prices)==0);
+    }
+}
+
+#endif
+
+#ifdef TEST122
+
+#include "122BestTimetoBuyandSellStockII.h"
+TEST_CASE("122BestTimetoBuyandSellStockII"){
+    SECTION("1221") {
+        vector<int> prices = {7, 1, 5, 3, 6, 4};
+        REQUIRE(maxProfit(prices) == 7);
+    }
+    SECTION("1222") {
+        vector<int> prices = {1,2,3,4,5};
+        REQUIRE(maxProfit(prices) == 4);
+    }
+}
+
+#endif
+
+#ifdef TEST127
+
+#include "127WordLadder.h"
+TEST_CASE("127WordLadder"){
+    SECTION("1271"){
+        string beginWord = "hit";
+        string endWord = "cog";
+        vector<string> wordList = {"hot","dot","dog","lot","log","cog"};
+        REQUIRE(ladderLength(beginWord,endWord,wordList)==5);
+    }
+    SECTION("1272"){
+        string beginWord = "hit";
+        string endWord = "cog";
+        vector<string> wordList = {"hot","dot","dog","lot","log"};
+        REQUIRE(ladderLength(beginWord,endWord,wordList)==0);
+    }
+}
+
+#endif
+
+#ifdef TEST437
+
+#include "437PathSumIII.h"
+TEST_CASE("437PathSumIII"){
+    SECTION("4371"){
+        vector<int> nums = {10,5,-3,3,2,INT32_MIN,11,3,-2,INT32_MIN,1};
+        TreeNode* tree = levelCreateTree(nums,0);
+        cout << pathSum(tree,8) << endl;
     }
 }
 
