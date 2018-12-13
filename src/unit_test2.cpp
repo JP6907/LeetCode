@@ -15,7 +15,8 @@ using namespace std;
 #define TEST155ED
 #define TEST160ED
 #define TEST167ED
-#define TEST168
+#define TEST168ED
+#define TEST169
 
 
 #ifndef TEST125ED
@@ -183,5 +184,29 @@ TEST_CASE("168ExcelSheetColumnTitle"){
     SECTION("1683"){
         REQUIRE(convertToTitle(701)=="ZY");
     }
+}
+#endif
+
+#ifndef TEST169ED
+
+#include "169MajorityElement.h"
+TEST_CASE("169MajorityElement"){
+    SECTION("1691"){
+        vector<int> nums = {3,2,3};
+        REQUIRE(majorityElement(nums)==3);
+    }
+    SECTION("1692"){
+        vector<int> nums = {2,2,1,1,1,2,2};
+        REQUIRE(majorityElement(nums)==2);
+    }
+    SECTION("1693"){
+        vector<int> nums = {-1,1,1,1,2,1};
+        REQUIRE(majorityElement(nums)==1);
+    }
+    SECTION("1694"){
+        vector<int> nums = {-1,1,1,1,2,2147483647,1};
+        REQUIRE(majorityElement(nums)==1);
+    }
+
 }
 #endif
