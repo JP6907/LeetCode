@@ -6,6 +6,8 @@
 
 using namespace std;
 
+#define TEST2ED
+#define TEST3
 #define TEST125ED
 #define TEST136ED
 #define TEST137ED
@@ -16,7 +18,7 @@ using namespace std;
 #define TEST160ED
 #define TEST167ED
 #define TEST168ED
-#define TEST169
+#define TEST169ED
 
 
 #ifndef TEST125ED
@@ -209,4 +211,48 @@ TEST_CASE("169MajorityElement"){
     }
 
 }
+#endif
+
+#ifndef TEST2ED
+
+#include "2AddTwoNumbers.h"
+TEST_CASE("2AddTwoNumbers"){
+    SECTION("21"){
+        vector<int> num1 = {2,4,3};
+        vector<int> num2 = {5,6,4};
+        ListNode* l1 = createLinkedList(num1);
+        ListNode* l2 = createLinkedList(num2);
+        ListNode* sum = addTwoNumbers(l1,l2);
+        printLinkedList(sum);
+    }
+    SECTION("22"){
+        vector<int> num1 = {5};
+        vector<int> num2 = {5};
+        ListNode* l1 = createLinkedList(num1);
+        ListNode* l2 = createLinkedList(num2);
+        ListNode* sum = addTwoNumbers(l1,l2);
+        printLinkedList(sum);
+    }
+}
+
+#endif
+
+#ifndef TEST3ED
+
+#include "3LongestSubstringWithoutRepeatingCharacters.h"
+TEST_CASE("3LongestSubstringWithoutRepeatingCharacters"){
+    SECTION("31"){
+        REQUIRE(lengthOfLongestSubstring("abcabcbb")==3);
+    }
+    SECTION("32"){
+        REQUIRE(lengthOfLongestSubstring("bbbbb")==1);
+    }
+    SECTION("33"){
+        REQUIRE(lengthOfLongestSubstring("pwwkew")==3);
+    }
+    SECTION("34"){
+        REQUIRE(lengthOfLongestSubstring("tmmzuxt")==5);
+    }
+}
+
 #endif
