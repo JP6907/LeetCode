@@ -7,7 +7,9 @@
 using namespace std;
 
 #define TEST2ED
-#define TEST3
+#define TEST3ED
+#define TEST5ED
+#define TEST6
 #define TEST125ED
 #define TEST136ED
 #define TEST137ED
@@ -255,4 +257,34 @@ TEST_CASE("3LongestSubstringWithoutRepeatingCharacters"){
     }
 }
 
+#endif
+
+
+#ifndef TEST5ED
+
+#include "5LongestPalindromicSubstring.h"
+TEST_CASE("5LongestPalindromicSubstring"){
+    SECTION("51"){
+        REQUIRE(longestPalindrome("babad")=="bab");
+    }
+    SECTION("52"){
+        REQUIRE(longestPalindrome("cbbd")=="bb");
+    }
+}
+
+#endif
+
+#ifndef TEST6ED
+#include "6ZigZagConversion.h"
+TEST_CASE("6ZigZagConversion"){
+    SECTION("61"){
+        REQUIRE(convert("PAYPALISHIRING",3)=="PAHNAPLSIIGYIR");
+    }
+    SECTION("62"){
+        REQUIRE(convert("PAYPALISHIRING",4)=="PINALSIGYAHRPI");
+    }
+    SECTION("63"){
+        REQUIRE(convert("AB",1)=="AB");
+    }
+}
 #endif
