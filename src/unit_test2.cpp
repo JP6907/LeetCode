@@ -9,7 +9,11 @@ using namespace std;
 #define TEST2ED
 #define TEST3ED
 #define TEST5ED
-#define TEST6
+#define TEST6ED
+#define TEST8ED
+#define TEST11ED
+#define TEST15ED
+#define TEST29
 #define TEST125ED
 #define TEST136ED
 #define TEST137ED
@@ -285,6 +289,91 @@ TEST_CASE("6ZigZagConversion"){
     }
     SECTION("63"){
         REQUIRE(convert("AB",1)=="AB");
+    }
+}
+#endif
+
+#ifndef TEST8ED
+
+#include "8StringtoInteger(atoi).h"
+TEST_CASE("8StringtoInteger"){
+    cout << INT32_MAX << endl;
+    cout << INT32_MIN << endl;
+    SECTION("81"){
+        REQUIRE(myAtoi("42")==42);
+    }
+    SECTION("82"){
+        REQUIRE(myAtoi("   -42")==-42);
+    }
+    SECTION("83"){
+        REQUIRE(myAtoi("4193 with words")==4193);
+    }
+    SECTION("84"){
+        REQUIRE(myAtoi("2147483648")==INT32_MAX);
+    }
+    SECTION("85"){
+        REQUIRE(myAtoi("-2147483648")==INT32_MIN);
+    }
+    SECTION("86"){
+        REQUIRE(myAtoi("-2147483649")==INT32_MIN);
+    }
+    SECTION("87"){
+        REQUIRE(myAtoi("-91283472332")==INT32_MIN);
+    }
+    SECTION("88"){
+        REQUIRE(myAtoi("-2147483647")==-2147483647);
+    }
+}
+#endif
+
+#ifndef TEST15ED
+
+#include "15 3Sum.h"
+TEST_CASE("15 3Sum"){
+    SECTION("151"){
+        vector<int> nums = {-1, 0, 1, 2, -1, -4};
+        vector<vector<int>> result = threeSum(nums);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+    }
+    SECTION("152"){
+        vector<int> nums = {0,0,0,0};
+        vector<vector<int>> result = threeSum(nums);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+    }
+}
+#endif
+
+
+#ifndef TEST11ED
+
+#include "11ContainerWithMostWater.h"
+TEST_CASE("11ContainerWithMostWater"){
+    SECTION("111"){
+        vector<int> nums = {1,8,6,2,5,4,8,3,7};
+        REQUIRE(maxArea(nums)==49);
+    }
+}
+#endif
+
+#ifndef TEST29ED
+
+#include "29DivideTwoIntegers.h"
+TEST_CASE("29DivideTwoIntegers"){
+    SECTION("291"){
+        REQUIRE(divide(10,3)==3);
+        REQUIRE(divide(7,-3)==-2);
+        REQUIRE(divide(1,1)==1);
+        REQUIRE(divide(INT32_MAX,1)==INT32_MAX);
+        REQUIRE(divide(INT32_MIN,-1)==INT32_MAX); //溢出情况
+        REQUIRE(divide(INT32_MIN,1)==INT32_MIN); //溢出情况
     }
 }
 #endif
