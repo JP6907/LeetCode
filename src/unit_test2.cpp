@@ -13,7 +13,10 @@ using namespace std;
 #define TEST8ED
 #define TEST11ED
 #define TEST15ED
-#define TEST29
+#define TEST24ED
+#define TEST29ED
+#define TEST39ED
+#define TEST40
 #define TEST125ED
 #define TEST136ED
 #define TEST137ED
@@ -376,4 +379,64 @@ TEST_CASE("29DivideTwoIntegers"){
         REQUIRE(divide(INT32_MIN,1)==INT32_MIN); //溢出情况
     }
 }
+#endif
+
+#ifndef TEST24ED
+
+#include "24SwapNodesinPairs.h"
+TEST_CASE("24SwapNodesinPairs"){
+    SECTION("241"){
+        vector<int> nums = {1,2,3,4};
+        ListNode* head = createLinkedList(nums);
+        ListNode* result = swapPairs(head);
+        printLinkedList(result);
+    }
+}
+#endif
+
+
+#ifndef TEST39ED
+#include "39CombinationSum.h"
+TEST_CASE("39CombinationSum"){
+    SECTION("391"){
+        vector<int> nums = {2,3,6,7};
+        int target = 7;
+        vector<vector<int>> result = combinationSum(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+    }
+}
+#endif
+
+
+#ifndef TEST40ED
+
+#include "40CombinationSumII.h"
+TEST_CASE("40CombinationSumII"){
+    SECTION("401"){
+        vector<int> nums = {10,1,2,7,6,1,5};
+        int target = 8;
+        vector<vector<int>> result = combinationSum2(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << "-----" << endl;
+    }
+    SECTION("401"){
+        vector<int> nums = {2,5,2,1,2};
+        int target = 5;
+        vector<vector<int>> result = combinationSum2(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+    }
+}
+
 #endif
