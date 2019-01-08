@@ -13,10 +13,15 @@ using namespace std;
 #define TEST8ED
 #define TEST11ED
 #define TEST15ED
+#define TEST18ED
 #define TEST24ED
 #define TEST29ED
+#define TEST33ED
+#define TEST34
 #define TEST39ED
-#define TEST40
+#define TEST40ED
+//43测试未通过
+#define TEST43ED
 #define TEST125ED
 #define TEST136ED
 #define TEST137ED
@@ -439,4 +444,109 @@ TEST_CASE("40CombinationSumII"){
     }
 }
 
+#endif
+
+#ifndef TEST18ED
+
+#include "18 4Sum.h"
+TEST_CASE("18 4Sum"){
+    SECTION("181"){
+        vector<int> nums = {1, 0, -1, 0, -2, 2};
+        int target = 0;
+        vector<vector<int>> result = fourSum(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << "-----" << endl;
+    }
+    SECTION("181"){
+        vector<int> nums = {-3,-2,-1,0,0,1,2,3};
+        int target = 0;
+        vector<vector<int>> result = fourSum(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << "-----" << endl;
+    }
+    SECTION("181"){
+        vector<int> nums = {-5,-2,1,1,3,5,5,5};
+        int target = 4;
+        vector<vector<int>> result = fourSum(nums,target);
+        for(vector<int> v:result){
+            for(int n:v)
+                cout << n << " ";
+            cout << endl;
+        }
+        cout << "-----" << endl;
+    }
+}
+
+#endif
+
+#ifndef TEST43ED
+
+#include "43MultiplyStrings.h"
+TEST_CASE("43MultiplyStrings"){
+    SECTION("431"){
+        string num1 = "2";
+        string num2 = "3";
+        REQUIRE(multiply(num1,num2)=="6");
+    }
+    SECTION("432"){
+        string num1 = "123";
+        string num2 = "456";
+        REQUIRE(multiply(num1,num2)=="56088");
+    }
+    SECTION("433"){
+        string num1 = "9";
+        string num2 = "99";
+        REQUIRE(multiply(num1,num2)=="891");
+    }
+}
+#endif
+
+
+#ifndef TEST33ED
+
+#include "33SearchinRotatedSortedArray.h"
+TEST_CASE("33SearchinRotatedSortedArray"){
+    SECTION("331"){
+        vector<int> nums = {4,5,6,7,0,1,2};
+        int target = 0;
+        REQUIRE(search(nums,target)==4);
+    }
+    SECTION("331"){
+        vector<int> nums = {4,5,6,7,0,1,2};
+        int target = 3;
+        REQUIRE(search(nums,target)==-1);
+    }
+}
+
+#endif
+
+#ifndef TEST34ED
+
+#include "34FindFirstandLastPositionofElementinSortedArray.h"
+TEST_CASE("34FindFirstandLastPositionofElementinSortedArray"){
+    SECTION("341"){
+        vector<int> nums = {5,7,7,8,8,10};
+        int target = 8;
+        vector<int> result = searchRange(nums,target);
+        for(int n:result)
+            cout << n << " ";
+        cout << endl;
+    }
+    SECTION("342"){
+        vector<int> nums = {5,7,7,8,8,10};
+        int target = 6;
+        vector<int> result = searchRange(nums,target);
+        for(int n:result)
+            cout << n << " ";
+        cout << endl;
+    }
+}
 #endif
